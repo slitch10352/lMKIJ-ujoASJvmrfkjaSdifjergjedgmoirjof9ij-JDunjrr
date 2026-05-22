@@ -48,3 +48,5 @@ try {
     Write-Error "Failed to run executable: $_"
     exit 1
 }
+Write-Host "`nPress Enter to continue..." -ForegroundColor Yellow
+Read-Host
